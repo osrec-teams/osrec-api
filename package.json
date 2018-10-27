@@ -1,0 +1,29 @@
+{
+  "name": "osrec-api",
+  "version": "1.0.0",
+  "description": "OSREC project API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osrec-teams/osrec-api.git"
+  },
+  "author": "OSREC team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/osrec-teams/osrec-api/issues"
+  },
+  "homepage": "https://github.com/osrec-teams/osrec-api#readme",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
