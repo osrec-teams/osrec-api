@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "lint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
