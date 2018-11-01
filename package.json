@@ -4,10 +4,11 @@
   "description": "OSREC project API",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/app.js",
     "setup": "./scripts/setup.sh",
     "test": "echo \"No test specified\"",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "nodemon": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.5"
   }
 }
