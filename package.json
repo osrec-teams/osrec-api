@@ -20,6 +20,8 @@
   "homepage": "https://github.com/osrec-teams/osrec-api#readme",
   "dependencies": {
     "jest": "^23.6.0",
+    "koa": "^2.6.1",
+    "koa-router": "^7.4.0",
     "prettier": "^1.14.3"
   },
   "devDependencies": {
