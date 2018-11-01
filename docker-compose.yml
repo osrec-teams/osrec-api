@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    container_name: osrec-pg
+    hostname: osrec-pg
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - POSTGRES_DB=osrec
+      - POSTGRES_USER=${USER}
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
