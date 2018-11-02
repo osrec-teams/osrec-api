@@ -8,7 +8,9 @@
     "setup": "./scripts/setup.sh",
     "test": "echo \"No test specified\"",
     "lint": "eslint src/**/*.js",
-    "nodemon": "nodemon src/app.js"
+    "nodemon": "nodemon src/app.js",
+    "migrate:make": "knex migrate:make",
+    "migrate:latest": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
