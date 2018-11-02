@@ -24,18 +24,18 @@
   "homepage": "https://github.com/osrec-teams/osrec-api#readme",
   "dependencies": {
     "bookshelf": "^0.13.3",
-    "jest": "^23.6.0",
     "knex": "^0.15.2",
     "koa": "^2.6.1",
     "koa-router": "^7.4.0",
-    "pg": "^7.6.0",
-    "prettier": "^1.14.3"
+    "pg": "^7.6.0"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3"
   },
   "jest": {
     "testEnvironment": "node"
