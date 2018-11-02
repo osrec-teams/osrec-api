@@ -10,7 +10,8 @@
     "lint": "eslint src/**/*.js",
     "nodemon": "nodemon src/app.js",
     "migrate:make": "knex migrate:make",
-    "migrate:latest": "knex migrate:latest"
+    "migrate:latest": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback"
   },
   "repository": {
     "type": "git",
