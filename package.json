@@ -27,6 +27,7 @@
     "bookshelf": "^0.13.3",
     "knex": "^0.15.2",
     "koa": "^2.6.1",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "pg": "^7.6.0"
   },
