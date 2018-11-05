@@ -3,6 +3,18 @@ const bcrypt = require('bcryptjs');
 
 const SALT_ROUND = 10;
 
+const hashPassword = (model, attrs) =>
+  new Promise(function(resolve, reject) {
+    bcrypt.genSalt(SALT_ROUND, function(err, salt) {
+      if (err) return reject(err);
+      bcrypt.hash(model.attributes.password, salt, function(err, hash) {
+        if (err) return reject(err);
+        model.set('password', hash);
+        resolve();
+      });
+    });
+  });
+
 const User = bookshelf.Model.extend({
   tableName: 'users',
   hasTimestamps: true,
@@ -11,18 +23,7 @@ const User = bookshelf.Model.extend({
     this.on('creating', this.hashPassword);
   },
 
-  hashPassword: (model, attrs) => {
-    return new Promise(function(resolve, reject) {
-      bcrypt.genSalt(SALT_ROUND, function(err, salt) {
-        if (err) return reject(err);
-        bcrypt.hash(model.attributes.password, salt, function(err, hash) {
-          if (err) return reject(err);
-          model.set('password', hash);
-          resolve();
-        });
-      });
-    });
-  },
+  hashPassword,
 });
 
 module.exports = User;

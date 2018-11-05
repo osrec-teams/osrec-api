@@ -1,21 +1,12 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-const Joi = require('joi');
-
-const router = new Router();
 
 const validate = require('../utils/validation.js');
+
+const schema = require('../schemas/user.js');
 const User = require('../models/user.js');
 
-const schema = Joi.object().keys({
-  email: Joi.string()
-    .email()
-    .required(),
-  username: Joi.string()
-    .alphanum()
-    .required(),
-  password: Joi.string().required(),
-});
+const router = new Router();
 
 router.post('/', validate(schema), async ctx => {
   try {
