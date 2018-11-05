@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/osrec-teams/osrec-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bookshelf": "^0.13.3",
     "joi": "^14.0.4",
     "knex": "^0.15.2",
