@@ -1,4 +1,4 @@
-const bookshelf = require('./bookshelf.js');
+const bookshelf = require('../utils/bookshelf.js');
 const bcrypt = require('bcryptjs');
 
 const SALT_ROUND = 10;
