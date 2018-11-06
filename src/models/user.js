@@ -1,16 +1,20 @@
-const bookshelf = require('../utils/bookshelf.js');
+/* eslint prefer-arrow-callback: 0 */
+/* eslint func-names: 0 */
+/* eslint object-shorthand: 0 */
+
 const bcrypt = require('bcryptjs');
+const bookshelf = require('../utils/bookshelf.js');
 
 const SALT_ROUND = 10;
 
-const hashPassword = (model, attrs) =>
+const hashPassword = model =>
   new Promise(function(resolve, reject) {
-    bcrypt.genSalt(SALT_ROUND, function(err, salt) {
-      if (err) return reject(err);
-      bcrypt.hash(model.attributes.password, salt, function(err, hash) {
-        if (err) return reject(err);
+    return bcrypt.genSalt(SALT_ROUND, function(serr, salt) {
+      if (serr) return reject(serr);
+      return bcrypt.hash(model.attributes.password, salt, function(herr, hash) {
+        if (herr) return reject(herr);
         model.set('password', hash);
-        resolve();
+        return resolve();
       });
     });
   });

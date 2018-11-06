@@ -1,4 +1,3 @@
-const Koa = require('koa');
 const Router = require('koa-router');
 
 const validate = require('../utils/validation.js');
@@ -15,7 +14,6 @@ router.post('/', validate(schema), async ctx => {
   } catch (e) {
     ctx.status = 400;
     ctx.body = e.message;
-    return;
   }
 });
 

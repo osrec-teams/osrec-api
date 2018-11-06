@@ -1,4 +1,7 @@
+/* eslint import/order: 0 */
+
 const knexfile = require('../../knexfile.js');
+
 const dbConfig = () => {
   switch (process.env.NODE_ENV) {
     case 'development':
@@ -11,5 +14,7 @@ const dbConfig = () => {
       throw new Error('Invalid NODE_ENV variable');
   }
 };
+
 const knex = require('knex')(dbConfig());
+
 module.exports = require('bookshelf')(knex);
