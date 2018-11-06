@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
+    "setup": "./scripts/setup.sh",
     "test": "echo \"No test specified\"",
     "lint": "eslint src/**/*.js"
   },
