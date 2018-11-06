@@ -61,4 +61,12 @@ describe('POST /users', () => {
       /duplicate key value violates unique constraint "users_email_unique"/,
     );
   });
+
+  test('route will save user', async () => {
+    const res = await request(app)
+      .post('/users')
+      .send(userData);
+    expect(res.status).toEqual(201);
+    expect(res.text).toMatch(/Created/);
+  });
 });
