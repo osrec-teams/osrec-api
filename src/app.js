@@ -10,10 +10,11 @@ const port = process.env.PORT || 8080;
 const users = require('./routes/users.js');
 
 app.use(bodyParser());
-app.use(logger());
+
+if (process.env.NODE_ENV === 'development') app.use(logger());
 
 router.use('/users', users.routes()), users.use(users.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 
-app.listen(port);
+module.exports = app.listen(port);

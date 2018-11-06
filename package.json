@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "setup": "./scripts/setup.sh",
-    "test": "echo \"No test specified\"",
+    "test": "./scripts/test.sh",
     "lint": "eslint src/**/*.js",
     "nodemon": "nodemon src/app.js",
     "migrate:make": "knex migrate:make",
@@ -26,20 +26,23 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bookshelf": "^0.13.3",
+    "eslint-config-prettier": "^3.1.0",
     "joi": "^14.0.4",
     "knex": "^0.15.2",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "pg": "^7.6.0"
+    "lodash": "^4.17.11",
+    "pg": "^7.6.0",
+    "supertest": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "nodemon": "^1.18.5",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.5",
     "prettier": "^1.14.3"
   },
   "jest": {

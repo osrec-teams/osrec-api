@@ -21,4 +21,16 @@ module.exports = {
       max: 10,
     },
   },
+  test: {
+    client: 'postgresql',
+    connection: {
+      database: 'osrec-test',
+      user: process.env.USER,
+      password: process.env.USER,
+    },
+    pool: {
+      min: 1,
+      max: 1,
+    },
+  },
 };
