@@ -8,6 +8,7 @@ const app = new Koa();
 const router = new Router();
 const port = process.env.PORT || 8080;
 
+const auth = require('./routes/auth.js');
 const users = require('./routes/users.js');
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(bodyParser());
 if (process.env.NODE_ENV === 'development') app.use(logger());
 
 router.use('/users', users.routes(), users.allowedMethods());
+router.use('/auth', auth.routes(), auth.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 
