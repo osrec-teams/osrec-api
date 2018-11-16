@@ -19,6 +19,10 @@ const hashPassword = model =>
     });
   });
 
+const comparePassword = function(password) {
+  return bcrypt.compare(password, this.get('password'));
+};
+
 const User = bookshelf.Model.extend({
   tableName: 'users',
   hasTimestamps: true,
@@ -28,6 +32,7 @@ const User = bookshelf.Model.extend({
   },
 
   hashPassword,
+  comparePassword,
 });
 
 module.exports = User;
