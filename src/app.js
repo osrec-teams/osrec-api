@@ -14,6 +14,11 @@ const users = require('./routes/users.js');
 app.use(cors());
 app.use(bodyParser());
 
+app.use(async (ctx, next) => {
+  ctx.set('Content-Type', 'application/json');
+  await next();
+});
+
 if (process.env.NODE_ENV === 'development') app.use(logger());
 
 router.use('/users', users.routes(), users.allowedMethods());
