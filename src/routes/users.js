@@ -12,8 +12,8 @@ router.post('/', validate(schema), async ctx => {
     await User.forge(ctx.request.body).save();
     ctx.status = 201;
   } catch (e) {
-    ctx.status = 400;
-    ctx.body = e.message;
+    ctx.status = /Key .* already exists\./.test(e.detail) ? 409 : 400;
+    ctx.body = { message: e.detail };
   }
 });
 
