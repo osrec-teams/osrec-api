@@ -1,17 +1,11 @@
 const request = require('supertest');
 const { omit } = require('lodash');
-const bcrypt = require('bcryptjs');
 
 const bookshelf = require('../../utils/bookshelf.js');
 
 const { knex } = bookshelf;
 
 const app = require('../../app.js');
-
-const hashPassword = async password => {
-  const salt = await bcrypt.genSalt(10);
-  return bcrypt.hash(password, salt);
-};
 
 beforeEach(async () => {
   await knex.migrate.latest();
