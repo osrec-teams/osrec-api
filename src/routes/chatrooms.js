@@ -14,7 +14,7 @@ const bodyValidatorIndex = Joi.object().keys({
 
 router.get('/', validateQuery(bodyValidatorIndex), async ctx => {
   try {
-    const chatrooms = await ChatRoom.forge(ctx.request.body).fetch();
+    const chatrooms = await ChatRoom.forge(ctx.request.query).fetch();
     ctx.status = 200;
     ctx.body = chatrooms;
   } catch (e) {
