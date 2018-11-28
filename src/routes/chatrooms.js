@@ -13,13 +13,23 @@ const bodyValidatorIndex = Joi.object().keys({
 });
 
 router.get('/', validateQuery(bodyValidatorIndex), async ctx => {
-  try {
-    const chatrooms = await ChatRoom.forge(ctx.request.query).fetch();
-    ctx.status = 200;
-    ctx.body = chatrooms;
-  } catch (e) {
+  const chatrooms = await ChatRoom.forge(ctx.request.query).fetch();
+  if (chatrooms === null) {
     ctx.status = 404;
+    return;
   }
+  ctx.status = 200;
+  ctx.body = chatrooms;
+});
+
+router.get('/:id', async ctx => {
+  const chatroom = await ChatRoom.forge({ id: ctx.params.id }).fetch();
+  if (chatroom === null) {
+    ctx.status = 404;
+    return;
+  }
+  ctx.status = 200;
+  ctx.body = chatroom;
 });
 
 router.post('/', validateBody(schema), async ctx => {
