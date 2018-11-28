@@ -1,6 +1,6 @@
 const Router = require('koa-router');
 const jwt = require('jsonwebtoken');
-const validate = require('../utils/validation');
+const { validateBody } = require('../utils/validation');
 
 const {
   auth: { secret },
@@ -16,7 +16,7 @@ const badCredentials = ctx => {
   ctx.body = { message: 'Bad credentials' };
 };
 
-router.post('/', validate(schema), async ctx => {
+router.post('/', validateBody(schema), async ctx => {
   const user = await User.where('username', ctx.request.body.login).fetch();
   if (user === null) {
     return badCredentials(ctx);
