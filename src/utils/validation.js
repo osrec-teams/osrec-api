@@ -3,7 +3,7 @@ const Joi = require('joi');
 module.exports = {
   validateBody: schema => async (ctx, next) => {
     try {
-      await Joi.validate(ctx.request.body, schema);
+      ctx.request.body = await Joi.validate(ctx.request.body, schema);
     } catch (e) {
       ctx.status = 400;
       ctx.body = { message: e.message };
@@ -13,7 +13,7 @@ module.exports = {
   },
   validateQuery: schema => async (ctx, next) => {
     try {
-      await Joi.validate(ctx.request.query, schema);
+      ctx.request.query = await Joi.validate(ctx.request.query, schema);
     } catch (e) {
       ctx.status = 400;
       ctx.body = { message: e.message };
