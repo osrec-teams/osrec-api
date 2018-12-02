@@ -6,9 +6,6 @@ const cors = require('@koa/cors');
 
 const app = new Koa();
 const router = new Router();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-require('./socket.js')(io);
 
 const port = process.env.PORT || 8080;
 
@@ -32,4 +29,7 @@ router.use('/chatrooms', chatrooms.routes(), chatrooms.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 
-module.exports = app.listen(port);
+const server = require('http').createServer(app.callback());
+const io = require('socket.io')(server);
+require('./socket.js')(io);
+module.exports = server.listen(port);

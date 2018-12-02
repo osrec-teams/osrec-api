@@ -2,6 +2,7 @@ module.exports = io => {
   io.set('origins', '*:*');
 
   io.on('connection', socket => {
+    console.log(`${socket.id} just connected`);
     socket.on('room_join', room => {
       socket.join(room, () => {});
     });
