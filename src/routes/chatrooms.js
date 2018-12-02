@@ -22,8 +22,8 @@ router.get('/', validateQuery(bodyValidatorIndex), async ctx => {
   ctx.body = chatrooms;
 });
 
-router.get('/:id', async ctx => {
-  const chatroom = await ChatRoom.forge({ id: ctx.params.id }).fetch();
+router.get('/:name', async ctx => {
+  const chatroom = await ChatRoom.forge({ name: ctx.params.name }).fetch();
   if (chatroom === null) {
     ctx.status = 404;
     return;

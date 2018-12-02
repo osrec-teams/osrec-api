@@ -2,10 +2,12 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const Io = require('koa-socket-2');
 const cors = require('@koa/cors');
 
 const app = new Koa();
 const router = new Router();
+const io = new Io();
 
 const port = process.env.PORT || 8080;
 
@@ -29,7 +31,7 @@ router.use('/chatrooms', chatrooms.routes(), chatrooms.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 
-const server = require('http').createServer(app.callback());
-const io = require('socket.io')(server);
-require('./socket.js')(io);
-module.exports = server.listen(port);
+io.attach(app);
+require('./socket.js')(app._io);
+
+module.exports = app.listen(port);
