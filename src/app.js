@@ -6,6 +6,10 @@ const cors = require('@koa/cors');
 
 const app = new Koa();
 const router = new Router();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+require('./socket.js')(io);
+
 const port = process.env.PORT || 8080;
 
 const auth = require('./routes/auth.js');
